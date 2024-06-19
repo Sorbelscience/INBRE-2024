@@ -8,6 +8,9 @@ backup_dir = "/home/storm/INBRE-2024"
 # Define the repository URL
 repo_url = "https://github.com/Sorbelscience/INBRE-2024.git"
 
+# Define the branch name
+branch_name = "main"  # or "master" if your repo uses that
+
 # Navigate to the backup directory
 os.chdir(backup_dir)
 
@@ -24,4 +27,4 @@ commit_message = f"Backup on {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%
 subprocess.run(["git", "commit", "-m", commit_message], check=True)
 
 # Push the changes to the remote repository
-subprocess.run(["git", "push", "-u", "origin", "master"], check=True)
+subprocess.run(["git", "push", "-u", "origin", branch_name], check=True)

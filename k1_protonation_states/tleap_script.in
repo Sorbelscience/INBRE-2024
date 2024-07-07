@@ -1,0 +1,23 @@
+source leaprc.protein.ff14SB
+source leaprc.water.tip3p
+
+# Load your PDB file
+mol = loadpdb /home/storm/INBRE-2024/k1_protonation_states/k1_corrected.pdb
+
+# Check the structure for issues
+check mol
+
+# Add ions to neutralize the system
+addIons mol Na+ 0
+addIons mol Cl- 0
+
+# Solvate the system with TIP3P water box
+solvateBox mol TIP3PBOX 10.0
+
+# Save the parameter/topology and coordinate files
+saveamberparm mol k1.prmtop k1.inpcrd
+
+# Save the final PDB file
+savepdb mol k1_final.pdb
+
+quit
